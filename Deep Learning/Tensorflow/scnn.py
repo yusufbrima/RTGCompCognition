@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 import tensorflow.keras as keras
 import matplotlib.pyplot as plt
 import tensorflow as tf
+from tqdm import tqdm
 from tensorflow.keras import backend as K
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.models import Sequential
@@ -45,7 +46,7 @@ def train_test():
     models = [ VGG16, ResNet50,ResNet50V2,ResNet152V2, VGG19, DenseNet121,EfficientNetB7,DenseNet169,DenseNet201,InceptionResNetV2,EfficientNetB7]
     m_names = [ "VGG16", "ResNet50","ResNet50V2","ResNet152V2", "VGG19", "DenseNet121","EfficientNetB7","DenseNet169","DenseNet201","InceptionResNetV2","EfficientNetB7"]
     res = {"model":[], "val_accuracy":[], "test_accuracy":[] }
-    for i in range(len(models)):
+    for i in tqdm(range(len(models))):
         K.clear_session()
         # EfficientNetB7,DenseNet169,DenseNet201,InceptionResNetV2,EfficientNetB7
         base_model = models[i](weights=None, include_top=False, input_shape=input_shape)
@@ -70,16 +71,15 @@ def train_test():
         _, test_acc = model.evaluate(X_test, y_test, verbose=2)
         res['model'].append(m_names[i])
         res['test_accuracy'].append(test_acc)
-        #res['val_accuracy'].append(test_acc)
+        res['val_accuracy'].append(test_acc)
         print('\nTest accuracy:', test_acc)
 
         # pick a sample to predict from the test set
         X_to_predict = X_test[100]
         y_to_predict = y_test[100]
-        print(f"Val_accuracy {np.array(history.history['val_accuracy']).mean()}")
+        print(f"Val_accuracy {np.array(history.history['val_accuracy']).mean()} for {m_names[i]}")
         # predict sample
         predict(model, X_to_predict, y_to_predict)
-        break
     df = pd.DataFrame(res)
     df.to_csv(REPORT_PATH,df,index=False)
     print(f"Experiment completed successfully, report saved to {REPORT_PATH}")
