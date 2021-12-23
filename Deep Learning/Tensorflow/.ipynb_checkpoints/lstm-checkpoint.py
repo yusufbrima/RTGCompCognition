@@ -13,9 +13,9 @@ import os
 import math
 import tqdm
 
-DATA_PATH = "/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/data_genre.npz"
-# DATA_PATH = "/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/data_chimp.npz"
-n_output =  10
+
+DATA_PATH = "/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/data_chimp.npz"
+n_output =  13
 SAMPLE_RATE = 44100
 n_fft = 2048
 hop_length =  512
@@ -74,25 +74,6 @@ def prepare_datasets(test_size, validation_size):
     return X_train, X_validation, X_test, y_train, y_validation, y_test
 
 
-def predict(model, X, y):
-    """Predict a single sample using the trained model
-
-    :param model: Trained classifier
-    :param X: Input data
-    :param y (int): Target
-    """
-
-    # add a dimension to input data for sample - model.predict() expects a 4d array in this case
-    X = X[np.newaxis, ...] # array shape (1, 130, 32, 1)
-
-    # perform prediction
-    prediction = model.predict(X)
-
-    # get index with max value
-    predicted_index = np.argmax(prediction, axis=1)
-
-    print("Target: {}, Predicted label: {}".format(y, predicted_index))
-
 if __name__ == '__main__':
     # get train, validation, test splits
     X_train, X_validation, X_test, y_train, y_validation, y_test = prepare_datasets(0.25, 0.2)
@@ -110,18 +91,5 @@ if __name__ == '__main__':
     print( model.summary())
     
     # train model
-    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), batch_size=32, epochs=30)
-
-
-    # evaluate model on test set
-    test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
-    print('\nTest accuracy:', test_acc)
-
-    # pick a sample to predict from the test set
-    X_to_predict = X_test[100]
-    y_to_predict = y_test[100]
-
-    # predict sample
-    predict(model, X_to_predict, y_to_predict)
-
+    history = model.fit(X_train, y_train, validation_data=(X_test, y_test), batch_size=32, epochs=15)
     

@@ -14,7 +14,7 @@ import math
 import tqdm
 
 
-file_path = "/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/data_genre.npz"
+file_path = "/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/data_genre_updated.npz"
 SAMPLE_RATE = 44100
 n_fft = 2048
 hop_length =  512
@@ -28,18 +28,18 @@ if __name__ == '__main__':
     data =  np.load(file_path)
 
 
-    W,X,y = data['w'],data['x'],data['y']
+    X,y = data['x'],data['y']
     
     # create train/test split
-    Wx =  normalize(W)
-    X_train, X_test, y_train, y_test = train_test_split(Wx, y, test_size=0.3,shuffle=True)
+    X =  normalize(X)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,shuffle=True)
     
     
     # build network topology
     model = keras.Sequential([
 
         # input layer
-        keras.layers.Flatten(input_shape=(Wx.shape[1], Wx.shape[2])),
+        keras.layers.Flatten(input_shape=(X.shape[1], X.shape[2])),
 
         # 1st dense layer
         keras.layers.Dense(512, activation='relu', kernel_regularizer=keras.regularizers.l2(0.001)),
