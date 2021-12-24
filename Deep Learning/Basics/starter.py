@@ -22,6 +22,16 @@ def buildModel(input_shape,n_classes=2):
         keras.layers.Dropout(0.3),
         keras.layers.BatchNormalization(),
 
+        # # 4th layer
+        # keras.layers.Dense(256,activation="relu",kernel_regularizer=keras.regularizers.l2(0.001)),
+        # keras.layers.Dropout(0.3),
+        # keras.layers.BatchNormalization(),
+
+        # # 5th layer
+        # keras.layers.Dense(128,activation="relu",kernel_regularizer=keras.regularizers.l2(0.001)),
+        # keras.layers.Dropout(0.3),
+        # keras.layers.BatchNormalization(),
+
         # 4th layer
         keras.layers.Dense(64,activation="relu",kernel_regularizer=keras.regularizers.l2(0.001)),
         keras.layers.Dropout(0.3),
@@ -72,5 +82,5 @@ if __name__ == '__main__':
 
     history = model.fit(X_train, Y_train, validation_data=(X_test, Y_test), batch_size=32, epochs=15)
     
-    # plot accuracy/error for training and validation
+    # # plot accuracy/error for training and validation
     plot_history(history)
