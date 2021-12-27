@@ -4,7 +4,10 @@ from sklearn.datasets import make_classification,make_regression
 from sklearn.model_selection import train_test_split
 import tensorflow.keras as keras
 import tensorflow.keras.backend as K 
-
+from sklearn.metrics import confusion_matrix,classification_report
+import seaborn as sn
+import pandas as pd
+import os 
 
 """ We are setting global constants """
 NUM_CLASSES =  2
@@ -12,6 +15,8 @@ NUM_SAMPLES =  10000
 NUM_FEATURES =  20
 EPOCHS =  30
 BATCH_SIZE =  32
+
+MODEL_PATH =  os.path.join(os.getcwd(),"models")
 
 
 def make_model(input_shape,output):
@@ -97,21 +102,38 @@ if __name__ == "__main__":
 
     # Step 4: split the dataset 
 
-    X_train,X_valid,Y_train,Y_valid = train_test_split(X,y,test_size=0.2,random_state=np.random.seed(1992))
+    # X_train,X_valid,Y_train,Y_valid = train_test_split(X,y,test_size=0.2,random_state=np.random.seed(1992))
 
-    X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train,test_size=0.1,random_state=np.random.seed(1992))
+    X_train,X_test,Y_train,Y_test = train_test_split(X,y,test_size=0.1,random_state=np.random.seed(1992))
 
 
     # Step 5: Train the model
 
-    history = model.fit(X_train, Y_train, validation_data=(X_valid, Y_valid), batch_size=BATCH_SIZE, epochs=EPOCHS)
-    
+    # history = model.fit(X_train, Y_train, validation_data=(X_valid, Y_valid), batch_size=BATCH_SIZE, epochs=EPOCHS)
+    history = model.fit(X_train, Y_train, validation_split=0.2, batch_size=BATCH_SIZE, epochs=EPOCHS)
     # # plot accuracy/error for training and validation
-    # plot_history(history)
+    
+    plot_history(history)
 
     # Step 6: Use the model to make predictions
 
     predictions =  model.predict(X_test,batch_size=BATCH_SIZE,verbose=1)
+
+    pred_classes =  np.argmax(predictions,axis=1)
+
+    con_mat =  confusion_matrix(Y_test,pred_classes)
+
+    class_labels = ["Cats","Dogs"]
+    df_cm = pd.DataFrame(con_mat, class_labels, class_labels)
+    plt.figure(figsize=(10,7))
+    sn.set(font_scale=1.4) # for label size
+    sn.heatmap(df_cm, annot=True, annot_kws={"size": 16},fmt="g",cmap='Blues') # font size
+    plt.xlabel('\nPredicted Values')
+    plt.ylabel('Actual Values')
+    plt.show()
+
+    model.save(os.path.join(MODEL_PATH,"model.h5"))
+
 
 
     

@@ -43,8 +43,8 @@ def train_test():
     # create network
     input_shape = (X_train.shape[1], X_train.shape[2], 1)
 
-    models = [ VGG16, ResNet50,ResNet50V2,ResNet152V2, VGG19, DenseNet121,EfficientNetB7,DenseNet169,DenseNet201,InceptionResNetV2,EfficientNetB7]
-    m_names = [ "VGG16", "ResNet50","ResNet50V2","ResNet152V2", "VGG19", "DenseNet121","EfficientNetB7","DenseNet169","DenseNet201","InceptionResNetV2","EfficientNetB7"]
+    models = [ VGG16, ResNet50,ResNet50V2,ResNet152V2, VGG19, DenseNet121,EfficientNetB7,DenseNet169,DenseNet201]
+    m_names = [ "VGG16", "ResNet50","ResNet50V2","ResNet152V2", "VGG19", "DenseNet121","EfficientNetB7","DenseNet169","DenseNet201"]
     res = {"model":[], "val_accuracy":[], "test_accuracy":[] }
     for i in tqdm(range(len(models))):
         K.clear_session()
