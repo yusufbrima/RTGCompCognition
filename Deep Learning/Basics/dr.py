@@ -43,5 +43,8 @@ if __name__ == "__main__":
 
     pca.fit(X_train).transform(X_train)
 
+    svd =  TruncatedSVD(n_components=10)
+    pca.fit(X_train).transform(X_train)
+
     # Step2, load model
 
