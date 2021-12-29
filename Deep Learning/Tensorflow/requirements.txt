@@ -106,6 +106,7 @@ ptyprocess                    0.7.0
 pyasn1                        0.4.8
 pyasn1-modules                0.2.7
 pycparser                     2.21
+pydot                         1.4.2
 Pygments                      2.10.0
 PyJWT                         2.3.0
 pylint                        2.7.2

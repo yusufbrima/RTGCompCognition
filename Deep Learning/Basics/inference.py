@@ -4,6 +4,7 @@ from sklearn.datasets import make_classification,make_regression
 from sklearn.model_selection import train_test_split
 import tensorflow.keras as keras
 import tensorflow.keras.backend as K 
+from sklearn.preprocessing import normalize
 from sklearn.metrics import confusion_matrix,classification_report
 import seaborn as sn
 import pandas as pd
