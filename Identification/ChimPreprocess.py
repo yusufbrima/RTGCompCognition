@@ -1,7 +1,3 @@
-import tensorflow.keras.backend as K
-import tensorflow.keras as keras
-from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import train_test_split
 from tqdm.notebook import tqdm
 import numpy as np
 import scipy as sp
@@ -47,8 +43,6 @@ def process_files(df):
     X  = []
     y =  []
     num_segments = 16
-    num_mfcc= 32
-    n_fft=1024
     dur = []
     for k in range(df.shape[0]):
         r =  df.iloc[k]
