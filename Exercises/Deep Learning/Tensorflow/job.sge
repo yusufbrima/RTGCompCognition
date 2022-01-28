@@ -1,0 +1,12 @@
+st_deep
+#$ -l mem=4G
+#$ -l cuda=1
+#$ -l cuda_cores=384
+#$ -pe default 2
+export PATH="$HOME/miniconda/bin:$PATH"
+rm /tmp/* -R -f 2> /dev/null
+
+conda activate CV
+  cnn . py | python3
+conda deactivate 
+rm /tmp/* -R -f 2> /dev/null
