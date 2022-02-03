@@ -1,0 +1,79 @@
+2022-02-03 13:20:01.615047: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-02-03 13:20:02.908853: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 47197 MB memory:  -> device: 0, name: Quadro RTX 8000, pci bus id: 0000:4f:00.0, compute capability: 7.5
+2022-02-03 13:20:02.910784: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 47220 MB memory:  -> device: 1, name: Quadro RTX 8000, pci bus id: 0000:d5:00.0, compute capability: 7.5
+Epoch 1/20
+2022-02-03 13:20:05.316947: E tensorflow/stream_executor/cuda/cuda_dnn.cc:359] Loaded runtime CuDNN library: 8.0.5 but source was compiled with: 8.1.0.  CuDNN library needs to have matching major version and equal or higher minor version. If using a binary install, upgrade your CuDNN library.  If building from sources, make sure the library loaded at runtime is compatible with the version specified during compile configuration.
+2022-02-03 13:20:05.318088: W tensorflow/core/framework/op_kernel.cc:1745] OP_REQUIRES failed at conv_ops.cc:1120 : UNKNOWN: Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+Traceback (most recent call last):
+  File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 66, in <module>
+    history =  model.fit(x=X_train,y=y_train, batch_size=2, epochs=20, validation_split=0.1,verbose=1,callbacks=[WandbCallback()] )
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/wandb/integration/keras/keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 58, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnknownError:  Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+	 [[node model/block1_conv1/Conv2D
+ (defined at /net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/layers/convolutional.py:231)
+]] [Op:__inference_train_function_1573]
+Errors may have originated from an input operation.
+Input Source operations connected to node model/block1_conv1/Conv2D:
+In[0] IteratorGetNext (defined at /net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py:866)	
+In[1] model/block1_conv1/Conv2D/ReadVariableOp:
+Operation defined at: (most recent call last)
+>>>   File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 66, in <module>
+>>>     history =  model.fit(x=X_train,y=y_train, batch_size=2, epochs=20, validation_split=0.1,verbose=1,callbacks=[WandbCallback()] )
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/wandb/integration/keras/keras.py", line 168, in new_v2
+>>>     return old_v2(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 1216, in fit
+>>>     tmp_logs = self.train_function(iterator)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 878, in train_function
+>>>     return step_function(self, iterator)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 867, in step_function
+>>>     outputs = model.distribute_strategy.run(run_step, args=(data,))
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 860, in run_step
+>>>     outputs = model.train_step(data)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 808, in train_step
+>>>     y_pred = self(x, training=True)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1083, in __call__
+>>>     outputs = call_fn(inputs, *args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 92, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/functional.py", line 451, in call
+>>>     return self._run_internal_graph(
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/functional.py", line 589, in _run_internal_graph
+>>>     outputs = node.layer(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1083, in __call__
+>>>     outputs = call_fn(inputs, *args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 92, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/layers/convolutional.py", line 246, in call
+>>>     outputs = self.convolution_op(inputs, self.kernel)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/layers/convolutional.py", line 231, in convolution_op
+>>>     return tf.nn.convolution(
+>>>

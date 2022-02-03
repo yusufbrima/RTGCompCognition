@@ -1,0 +1,35 @@
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_1 (InputLayer)        [(None, 129, 87, 1)]      0
+ block1_conv1 (Conv2D)       (None, 129, 87, 64)       640
+ block1_conv2 (Conv2D)       (None, 129, 87, 64)       36928
+ block1_pool (MaxPooling2D)  (None, 64, 43, 64)        0
+ block2_conv1 (Conv2D)       (None, 64, 43, 128)       73856
+ block2_conv2 (Conv2D)       (None, 64, 43, 128)       147584
+ block2_pool (MaxPooling2D)  (None, 32, 21, 128)       0
+ block3_conv1 (Conv2D)       (None, 32, 21, 256)       295168
+ block3_conv2 (Conv2D)       (None, 32, 21, 256)       590080
+ block3_conv3 (Conv2D)       (None, 32, 21, 256)       590080
+ block3_pool (MaxPooling2D)  (None, 16, 10, 256)       0
+ block4_conv1 (Conv2D)       (None, 16, 10, 512)       1180160
+ block4_conv2 (Conv2D)       (None, 16, 10, 512)       2359808
+ block4_conv3 (Conv2D)       (None, 16, 10, 512)       2359808
+ block4_pool (MaxPooling2D)  (None, 8, 5, 512)         0
+ block5_conv1 (Conv2D)       (None, 8, 5, 512)         2359808
+ block5_conv2 (Conv2D)       (None, 8, 5, 512)         2359808
+ block5_conv3 (Conv2D)       (None, 8, 5, 512)         2359808
+ block5_pool (MaxPooling2D)  (None, 4, 2, 512)         0
+ flatten (Flatten)           (None, 4096)              0
+ dense (Dense)               (None, 10)                40970
+=================================================================
+Total params: 14,754,506
+Trainable params: 14,754,506
+Non-trainable params: 0
+_________________________________________________________________
+None
+2022-02-03 13:15:47.524217: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-02-03 13:15:48.862653: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 47197 MB memory:  -> device: 0, name: Quadro RTX 8000, pci bus id: 0000:4f:00.0, compute capability: 7.5
+2022-02-03 13:15:48.864624: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 47220 MB memory:  -> device: 1, name: Quadro RTX 8000, pci bus id: 0000:d5:00.0, compute capability: 7.5

@@ -1,0 +1,65 @@
+
+1761  1 second audio samples created successfully
+2022-02-03 13:40:01.935710: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-02-03 13:40:03.069607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 47197 MB memory:  -> device: 0, name: Quadro RTX 8000, pci bus id: 0000:4f:00.0, compute capability: 7.5
+2022-02-03 13:40:03.071762: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 47220 MB memory:  -> device: 1, name: Quadro RTX 8000, pci bus id: 0000:d5:00.0, compute capability: 7.5
+Epoch 1/20
+2022-02-03 13:40:05.945384: W tensorflow/core/framework/op_kernel.cc:1733] INVALID_ARGUMENT: required broadcastable shapes
+Traceback (most recent call last):
+  File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 67, in <module>
+    history =  model.fit(x=X_train,y=y_train, batch_size=2, epochs=20, validation_split=0.1,verbose=1,callbacks=[WandbCallback()] )
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/wandb/integration/keras/keras.py", line 168, in new_v2
+    return old_v2(*args, **kwargs)
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 67, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 58, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError:  required broadcastable shapes
+	 [[node Equal
+ (defined at /net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py:3609)
+]] [Op:__inference_train_function_2364]
+Errors may have originated from an input operation.
+Input Source operations connected to node Equal:
+In[0] Cast_1 (defined at /net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py:716)	
+In[1] Cast_2 (defined at /net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py:3607)
+Operation defined at: (most recent call last)
+>>>   File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 67, in <module>
+>>>     history =  model.fit(x=X_train,y=y_train, batch_size=2, epochs=20, validation_split=0.1,verbose=1,callbacks=[WandbCallback()] )
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/wandb/integration/keras/keras.py", line 168, in new_v2
+>>>     return old_v2(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 64, in error_handler
+>>>     return fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 1216, in fit
+>>>     tmp_logs = self.train_function(iterator)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 878, in train_function
+>>>     return step_function(self, iterator)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 867, in step_function
+>>>     outputs = model.distribute_strategy.run(run_step, args=(data,))
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 860, in run_step
+>>>     outputs = model.train_step(data)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/training.py", line 817, in train_step
+>>>     self.compiled_metrics.update_state(y, y_pred, sample_weight)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/engine/compile_utils.py", line 460, in update_state
+>>>     metric_obj.update_state(y_t, y_p, sample_weight=mask)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/utils/metrics_utils.py", line 73, in decorated
+>>>     update_op = update_state_fn(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py", line 177, in update_state_fn
+>>>     return ag_update_state(*args, **kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py", line 725, in update_state
+>>>     matches = ag_fn(y_true, y_pred, **self._fn_kwargs)
+>>>
+>>>   File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/keras/metrics.py", line 3609, in sparse_categorical_accuracy
+>>>     return tf.cast(tf.equal(y_true, y_pred), backend.floatx())
+>>>

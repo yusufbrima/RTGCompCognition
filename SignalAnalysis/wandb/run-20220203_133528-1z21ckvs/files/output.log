@@ -1,0 +1,6 @@
+
+1761  1 second audio samples created successfully
+2022-02-03 13:35:47.579022: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-02-03 13:35:48.840999: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 47197 MB memory:  -> device: 0, name: Quadro RTX 8000, pci bus id: 0000:4f:00.0, compute capability: 7.5
+2022-02-03 13:35:48.842824: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 47220 MB memory:  -> device: 1, name: Quadro RTX 8000, pci bus id: 0000:d5:00.0, compute capability: 7.5

@@ -1,0 +1,24 @@
+{
+    "os": "Linux-4.15.0-142-generic-x86_64-with-glibc2.23",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-02-03T12:15:43.158357",
+    "startedAt": "2022-02-03T12:15:38.283932",
+    "docker": null,
+    "gpu": "Quadro RTX 8000",
+    "gpu_count": 2,
+    "cpu_count": 40,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py",
+    "codePath": "SignalAnalysis/Train.py",
+    "git": {
+        "remote": "git@github.com:yusufbrima/RTGCompCognition.git",
+        "commit": "d46fada46e3e8c32031c833cf0447bc5f1534684"
+    },
+    "email": "ybrima@uos.de",
+    "root": "/net/store/cv/users/ybrima/RTGCompCog",
+    "host": "beam",
+    "username": "ybrima",
+    "executable": "/net/store/cv/users/ybrima/miniconda3/envs/CV/bin/python3"
+}

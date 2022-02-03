@@ -1,0 +1,6 @@
+
+1761  1 second audio samples created successfully
+Traceback (most recent call last):
+  File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 58, in <module>
+    model =  build_model(input_shape, output_nums)
+NameError: name 'build_model' is not defined

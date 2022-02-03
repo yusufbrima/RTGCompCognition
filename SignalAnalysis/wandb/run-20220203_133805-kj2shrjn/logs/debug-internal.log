@@ -1,0 +1,146 @@
+2022-02-03 13:38:07,145 INFO    MainThread:27778 [internal.py:wandb_internal():89] W&B internal server running at pid: 27778, started at: 2022-02-03 13:38:07.145150
+2022-02-03 13:38:07,148 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: check_version
+2022-02-03 13:38:07,148 INFO    WriterThread:27778 [datastore.py:open_for_write():77] open: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/run-kj2shrjn.wandb
+2022-02-03 13:38:07,153 DEBUG   SenderThread:27778 [sender.py:send():235] send: header
+2022-02-03 13:38:07,153 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: check_version
+2022-02-03 13:38:07,321 DEBUG   SenderThread:27778 [sender.py:send():235] send: run
+2022-02-03 13:38:07,565 INFO    SenderThread:27778 [dir_watcher.py:__init__():169] watching files in: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files
+2022-02-03 13:38:07,565 INFO    SenderThread:27778 [sender.py:_start_run_threads():809] run started: kj2shrjn with start time 1643891885
+2022-02-03 13:38:07,566 DEBUG   SenderThread:27778 [sender.py:send():235] send: summary
+2022-02-03 13:38:07,567 INFO    SenderThread:27778 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-03 13:38:07,567 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: run_start
+2022-02-03 13:38:08,570 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_created():217] file/dir created: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-summary.json
+2022-02-03 13:38:10,593 DEBUG   HandlerThread:27778 [meta.py:__init__():36] meta init
+2022-02-03 13:38:10,593 DEBUG   HandlerThread:27778 [meta.py:__init__():50] meta init done
+2022-02-03 13:38:10,594 DEBUG   HandlerThread:27778 [meta.py:probe():210] probe
+2022-02-03 13:38:10,601 DEBUG   HandlerThread:27778 [meta.py:_setup_git():200] setup git
+2022-02-03 13:38:10,655 DEBUG   HandlerThread:27778 [meta.py:_setup_git():207] setup git done
+2022-02-03 13:38:10,656 DEBUG   HandlerThread:27778 [meta.py:_save_pip():54] save pip
+2022-02-03 13:38:10,658 DEBUG   HandlerThread:27778 [meta.py:_save_pip():68] save pip done
+2022-02-03 13:38:10,658 DEBUG   HandlerThread:27778 [meta.py:_save_conda():75] save conda
+2022-02-03 13:38:11,574 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_created():217] file/dir created: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/requirements.txt
+2022-02-03 13:38:11,576 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_created():217] file/dir created: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/conda-environment.yaml
+2022-02-03 13:38:13,576 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_created():217] file/dir created: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:15,378 DEBUG   HandlerThread:27778 [meta.py:_save_conda():85] save conda done
+2022-02-03 13:38:15,378 DEBUG   HandlerThread:27778 [meta.py:probe():248] probe done
+2022-02-03 13:38:15,386 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-03 13:38:15,387 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: stop_status
+2022-02-03 13:38:15,579 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/conda-environment.yaml
+2022-02-03 13:38:15,579 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_created():217] file/dir created: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-metadata.json
+2022-02-03 13:38:15,592 DEBUG   SenderThread:27778 [sender.py:send():235] send: files
+2022-02-03 13:38:15,593 INFO    SenderThread:27778 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-03 13:38:16,177 INFO    Thread-11 :27778 [upload_job.py:push():137] Uploaded file /tmp/tmpwwmyvyvhwandb/2qc7y13w-wandb-metadata.json
+2022-02-03 13:38:19,588 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:26,605 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:28,608 INFO    Thread-8  :27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:28,997 DEBUG   SenderThread:27778 [sender.py:send():235] send: telemetry
+2022-02-03 13:38:28,998 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:28,998 DEBUG   SenderThread:27778 [sender.py:send():235] send: exit
+2022-02-03 13:38:28,998 INFO    SenderThread:27778 [sender.py:send_exit():371] handling exit code: 0
+2022-02-03 13:38:28,999 INFO    SenderThread:27778 [sender.py:send_exit():373] handling runtime: 21
+2022-02-03 13:38:29,001 INFO    SenderThread:27778 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-03 13:38:29,001 INFO    SenderThread:27778 [sender.py:send_exit():379] send defer
+2022-02-03 13:38:29,001 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:29,002 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,003 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 0
+2022-02-03 13:38:29,003 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,003 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-02-03 13:38:29,003 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 1
+2022-02-03 13:38:29,004 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,004 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 1
+2022-02-03 13:38:29,032 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,032 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-02-03 13:38:29,032 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 2
+2022-02-03 13:38:29,032 DEBUG   SenderThread:27778 [sender.py:send():235] send: stats
+2022-02-03 13:38:29,033 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,033 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 2
+2022-02-03 13:38:29,033 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,034 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-02-03 13:38:29,034 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 3
+2022-02-03 13:38:29,034 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,034 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 3
+2022-02-03 13:38:29,035 DEBUG   SenderThread:27778 [sender.py:send():235] send: summary
+2022-02-03 13:38:29,037 INFO    SenderThread:27778 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-03 13:38:29,037 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,037 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-02-03 13:38:29,037 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 4
+2022-02-03 13:38:29,038 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,038 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 4
+2022-02-03 13:38:29,038 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,038 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-02-03 13:38:29,104 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:29,276 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 5
+2022-02-03 13:38:29,276 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:29,277 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,278 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 5
+2022-02-03 13:38:29,278 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,278 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-02-03 13:38:29,278 INFO    SenderThread:27778 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-03 13:38:29,379 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:29,610 INFO    SenderThread:27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:29,610 INFO    SenderThread:27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/config.yaml
+2022-02-03 13:38:29,611 INFO    SenderThread:27778 [dir_watcher.py:_on_file_modified():230] file/dir modified: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-summary.json
+2022-02-03 13:38:29,611 INFO    SenderThread:27778 [dir_watcher.py:finish():313] scan: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files
+2022-02-03 13:38:29,612 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/config.yaml config.yaml
+2022-02-03 13:38:29,612 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-summary.json wandb-summary.json
+2022-02-03 13:38:29,613 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/requirements.txt requirements.txt
+2022-02-03 13:38:29,614 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/conda-environment.yaml conda-environment.yaml
+2022-02-03 13:38:29,627 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log output.log
+2022-02-03 13:38:29,638 INFO    SenderThread:27778 [dir_watcher.py:finish():327] scan save: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-metadata.json wandb-metadata.json
+2022-02-03 13:38:29,639 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 6
+2022-02-03 13:38:29,639 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:29,645 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:29,645 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 6
+2022-02-03 13:38:29,647 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:29,648 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-02-03 13:38:29,648 INFO    SenderThread:27778 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-03 13:38:29,741 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:29,741 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:29,845 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:29,849 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:29,951 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:29,952 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,054 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:30,054 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,157 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:30,157 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,214 INFO    Thread-12 :27778 [upload_job.py:push():137] Uploaded file /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/config.yaml
+2022-02-03 13:38:30,218 INFO    Thread-13 :27778 [upload_job.py:push():137] Uploaded file /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/wandb-summary.json
+2022-02-03 13:38:30,222 INFO    Thread-16 :27778 [upload_job.py:push():137] Uploaded file /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/output.log
+2022-02-03 13:38:30,245 INFO    Thread-14 :27778 [upload_job.py:push():137] Uploaded file /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/requirements.txt
+2022-02-03 13:38:30,249 INFO    Thread-15 :27778 [upload_job.py:push():137] Uploaded file /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/files/conda-environment.yaml
+2022-02-03 13:38:30,259 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:30,260 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,362 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:30,362 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,449 INFO    Thread-7  :27778 [sender.py:transition_state():392] send defer: 7
+2022-02-03 13:38:30,450 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:30,450 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 7
+2022-02-03 13:38:30,451 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:30,451 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-02-03 13:38:30,464 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:30,937 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 8
+2022-02-03 13:38:30,938 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:30,939 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:30,939 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 8
+2022-02-03 13:38:30,939 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:30,939 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-02-03 13:38:30,940 INFO    SenderThread:27778 [sender.py:transition_state():392] send defer: 9
+2022-02-03 13:38:30,941 DEBUG   SenderThread:27778 [sender.py:send():235] send: final
+2022-02-03 13:38:30,941 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: defer
+2022-02-03 13:38:30,941 DEBUG   SenderThread:27778 [sender.py:send():235] send: footer
+2022-02-03 13:38:30,942 INFO    HandlerThread:27778 [handler.py:handle_request_defer():154] handle defer: 9
+2022-02-03 13:38:30,942 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: defer
+2022-02-03 13:38:30,942 INFO    SenderThread:27778 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-02-03 13:38:31,040 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-03 13:38:31,040 DEBUG   SenderThread:27778 [sender.py:send_request():249] send_request: poll_exit
+2022-02-03 13:38:31,041 INFO    SenderThread:27778 [file_pusher.py:join():182] waiting for file pusher
+2022-02-03 13:38:31,447 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: get_summary
+2022-02-03 13:38:31,448 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: sampled_history
+2022-02-03 13:38:31,450 DEBUG   HandlerThread:27778 [handler.py:handle_request():131] handle_request: shutdown
+2022-02-03 13:38:31,450 INFO    HandlerThread:27778 [handler.py:finish():739] shutting down handler
+2022-02-03 13:38:31,942 INFO    WriterThread:27778 [datastore.py:close():281] close: /net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/wandb/run-20220203_133805-kj2shrjn/run-kj2shrjn.wandb
+2022-02-03 13:38:32,445 INFO    SenderThread:27778 [sender.py:finish():1075] shutting down sender
+2022-02-03 13:38:32,445 INFO    SenderThread:27778 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-03 13:38:32,445 INFO    SenderThread:27778 [file_pusher.py:join():182] waiting for file pusher
+2022-02-03 13:38:32,449 INFO    MainThread:27778 [internal.py:handle_exit():79] Internal process exited

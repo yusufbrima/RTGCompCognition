@@ -1,0 +1,17 @@
+
+1761  1 second audio samples created successfully
+Traceback (most recent call last):
+  File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Train.py", line 49, in <module>
+    X,y,Z = build_dataset(INPUT_PATH,keepdims=False,crop_dims= (32,32),outpath=file_path2 )
+  File "/net/store/cv/users/ybrima/RTGCompCog/SignalAnalysis/Preprocess.py", line 53, in build_dataset
+    np.savez(outpath,x =  np.array(X), y = np.array(label), z= np.array(Z), c = CLASSES)
+  File "<__array_function__ internals>", line 5, in savez
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/numpy/lib/npyio.py", line 616, in savez
+    _savez(file, args, kwds, False)
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/site-packages/numpy/lib/npyio.py", line 753, in _savez
+    zipf.close()
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/zipfile.py", line 1829, in close
+    self._fpclose(fp)
+  File "/net/store/cv/users/ybrima/miniconda3/envs/CV/lib/python3.9/zipfile.py", line 1929, in _fpclose
+    fp.close()
+KeyboardInterrupt
