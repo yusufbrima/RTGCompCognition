@@ -43,5 +43,5 @@ if __name__ == "__main__":
           metrics=['sparse_categorical_accuracy'])
      tf.keras.utils.plot_model(model, to_file='model.png', show_shapes=True)
      print(model.summary())
-     # history = model.fit(dl.train_dataset, epochs=config.hyperparams['EPOCHS'], validation_data=(dl.test_dataset) )
+     history = model.fit(dl.train_dataset, epochs=config.hyperparams['EPOCHS'], validation_data=(dl.test_dataset) )
 
