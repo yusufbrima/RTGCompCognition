@@ -37,11 +37,11 @@ if __name__ == "__main__":
      # temp_inputs = keras.Input(shape=dl.input_shape)
      # model(temp_inputs)
 
-     model = create_model(dl.input_shape,config.model['num_classes'])
+     model = ChimCLR(dl.input_shape,config.model['num_classes'])
      model.compile(optimizer='adam',
           loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
           metrics=['sparse_categorical_accuracy'])
      tf.keras.utils.plot_model(model, to_file='model.png', show_shapes=True)
      print(model.summary())
-     history = model.fit(dl.train_dataset, epochs=config.hyperparams['EPOCHS'], validation_data=(dl.test_dataset) )
+     # history = model.fit(dl.train_dataset, epochs=config.hyperparams['EPOCHS'], validation_data=(dl.test_dataset) )
 
