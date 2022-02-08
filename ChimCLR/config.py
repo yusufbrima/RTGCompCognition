@@ -14,6 +14,10 @@ hyperparams = dict(
     EPOCHS =  20
 )
 
+model = dict(
+    num_classes =  10
+)
+
 
 
 data = dict(

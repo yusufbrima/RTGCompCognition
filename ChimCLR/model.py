@@ -6,28 +6,6 @@ import config
 
 
  
-# class ChimCLR:
-
-#     def __init__(self, num_classes, input_shape):
-#         K.clear_session() # Clear previous models from memory.
-#         self.num_classes =  num_classes
-#         self.input_shape = input_shape
-#         self.model = ChimCLR()
-#     def build(self):
-#         model = keras.models.Sequential()
-#         model.add(keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=self.input_shape))
-#         model.add(keras.layers.MaxPooling2D((2, 2)))
-#         model.add(keras.layers.Conv2D(64, (3, 3), activation='relu'))
-#         model.add(keras.layers.MaxPooling2D((2, 2)))
-#         model.add(keras.layers.Conv2D(64, (3, 3), activation='relu'))
-#         model.add(keras.layers.Flatten())
-#         model.add(keras.layers.Dense(64, activation='relu'))
-#         model.add(keras.layers.Dense(self.num_classes, activation='softmax'))
-        
-#         model.compile(optimizer=tf.keras.optimizers.RMSprop(config.hyperparams['LEARNING_RATE']),
-#               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-#               metrics= ['sparse_categorical_accuracy'])
-#         return model
 
 class ChimCLR(tf.keras.Model):
     def __init__(self):
@@ -41,7 +19,7 @@ class ChimCLR(tf.keras.Model):
         self.pool3_flat = keras.layers.Flatten()
         self.dense4 = keras.layers.Dense(units=256, activation=tf.nn.relu)
         self.drop4 = keras.layers.Dropout(rate=0.4)
-        self.dense5 = keras.layers.Dense(units=10, activation=tf.nn.softmax)
+        self.dense5 = keras.layers.Dense(units=config.model['num_classes'], activation=tf.nn.softmax)
     def call(self, inputs, training=False):
         net = self.conv1(inputs)
         net = self.pool1(net)
