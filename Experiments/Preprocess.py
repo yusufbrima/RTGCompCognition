@@ -60,8 +60,12 @@ def build_dataset(INPUT_PATH, dur=1, keepdims=True, crop_dims= (128,128),outpath
                   if(x.shape[0] < sr*dur):
                     z = np.zeros( abs(x.shape[0] -  (sr*dur)) )
                     x =  np.concatenate([x, z ])
-                  S = librosa.feature.melspectrogram(y=x, sr=SAMPLE_RATE, n_mels=128,hop_length=HOP_LENGTH,fmax=8000)
-                  S_db = librosa.power_to_db(S, ref=np.max)
+                #   S = librosa.feature.melspectrogram(y=x, sr=SAMPLE_RATE, n_mels=128,hop_length=HOP_LENGTH,fmax=8000)
+                #   S_db = librosa.power_to_db(S, ref=np.max)
+                  D = librosa.stft(x,hop_length=HOP_LENGTH,n_fft= FRAME_LENGHT//4)  # STFT of y
+                  S_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
+                #   S_db = librosa.amplitude_to_db(np.abs(librosa.stft(Z[0],n_fft=HOP_LENGTH//2, hop_length=HOP_LENGTH)), ref=np.max)
+
                   Z.append(x)
                   if( not keepdims):
                       X.append(cv2.resize(S_db, crop_dims, interpolation = cv2.INTER_AREA))
