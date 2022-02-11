@@ -3,7 +3,8 @@ import librosa
 import librosa.display
 import matplotlib.pyplot as plt
 import config
-from pathlib import *
+from pathlib import Path
+import pandas as pd
 import glob
 import cv2
 import os
@@ -31,6 +32,26 @@ class Preprocessing:
             if(os.path.isdir(temp) and len(glob.glob(f"{temp}/*.wav")) > 0):
                 C.append(d)
         return C
+    def get_files(self):
+
+        ds =  {'file': [], 'class': [], 'label':  [], 'duration': [],'sr': []}
+        for d in os.listdir(self.INPUT_PATH):
+            temp =  Path(self.INPUT_PATH, d)
+            if(os.path.isdir(temp)):
+                for file in temp.glob("**/*.wav"):
+                    filename =  Path(temp,file)
+                    y,sr = librosa.load(filename, sr=None)
+                    duration =  (1/sr) * len(y)
+                    ds['file'].append(filename)
+                    ds['class'].append(self.CLASSES.index(d))
+                    ds['label'].append(d)
+                    ds['duration'].append(duration)
+                    ds['sr'].append(sr)
+        data = pd.DataFrame(ds)
+        data.to_csv(Path(config.data['BASE_PATH'],'metadata.csv'), index=False)
+        print(f"{data.shape[0]} files read successfully")
+        return data
+    
     def build_dataset(self,dur=config.audio['DURATION'], keepdims=True, crop_dims= (128,128),outpath=config.data['file_path']):
         X = []
         label = []
@@ -67,6 +88,17 @@ class Visualize:
         self.figsize = figsize 
         self.dpi = dpi
 
+    def show_distribution(self, df,save=True,filename='Data_Distribution_Default',figsize=(8,6)):
+        plt.figure(1,figsize=figsize)
+        ax = df['label'].value_counts().plot.barh(rot=0)
+        plt.annotate(fr"$n = {df.shape[0]}$",(17.2,8.9),weight='bold',fontsize=12)
+        ax.bar_label(ax.containers[0])
+        plt.xlabel("Classes")
+        plt.ylabel("Frequency")
+        plt.tight_layout()
+        if(save):
+            plt.savefig(f'{self.figpath}/{filename}.png', bbox_inches ="tight", dpi=300)
+        plt.show()
     def plot_components(self,X_pca,y,CLASSES, x_str='Component 1', y_str='Component 2', str_title="PCA", title="title.pdf"):
         fig = plt.figure(1,figsize=(10,6))
         ax =  fig.add_subplot(111)
@@ -79,19 +111,19 @@ class Visualize:
         plt.savefig(f'{self.figpath}/{title}', bbox_inches ="tight", dpi=100)
         plt.show()
 
-    def display(self, X,Z,y,CLASSES,n=6,flag =  False, save=True,filename='Sample_Plot.png'):
-        idx =  np.random.randint(0, X.shape[0], n)
+    def display(self, X,Z,y,CLASSES, idx,flag =  False, save=True,filename='Sample_Plot.png'):
         fig = plt.figure(1,figsize=self.figsize)
         for i in range(len(idx)):
             ax = plt.subplot(2,3,i+1)
             if(flag ==  False):
-                librosa.display.waveplot(Z[idx[i]],sr=config.audio['SAMPLE_RATE'],alpha=0.6)
+                librosa.display.waveshow(Z[idx[i]],sr=config.audio['SAMPLE_RATE'],alpha=0.6)
                 plt.xlabel("time")
                 plt.ylabel("amplitude")
+                plt.title(CLASSES[y[idx[i]]].replace("_", " "))
             else:
-                img = librosa.display.specshow(X[idx[i]],sr=config.audio['SAMPLE_RATE'],y_axis='mel', x_axis='time', hop_length=config.audio['HOP_LENGTH']) #
+                img = librosa.display.specshow(X[idx[i]],sr=config.audio['SAMPLE_RATE'],y_axis='mel', x_axis='time', hop_length=config.audio['HOP_LENGTH']//2, n_fft= config.audio['FRAME_LENGHT']) #
                 fig.colorbar(img, ax=ax, format='%+2.0f dB')
-                plt.title(CLASSES[y[idx[i]]])
+                plt.title(CLASSES[y[idx[i]]].replace("_", " "))
         plt.tight_layout()
         if(flag ==  False):
             plt.savefig(f'{self.figpath}/{filename}', bbox_inches ="tight", dpi=self.dpi)

@@ -6,19 +6,19 @@ import tensorflow.keras as keras
 
 def autoencoder(input_shape):
     encoder = keras.models.Sequential()
-    encoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation='relu', input_shape=input_shape))
+    encoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation=tf.nn.tanh, input_shape=input_shape))
     encoder.add(keras.layers.MaxPooling2D(2, strides=2))
     encoder.add(keras.layers.BatchNormalization())
-    encoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation='relu'))
+    encoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation=tf.nn.tanh))
     encoder.add(keras.layers.MaxPooling2D(2, strides=2))
     encoder.add(keras.layers.BatchNormalization())
-    encoder.add(keras.layers.Conv2D(128, 3, strides=1, padding='same', activation='relu'))
+    encoder.add(keras.layers.Conv2D(128, 3, strides=1, padding='same', activation=tf.nn.tanh))
     encoder.add(keras.layers.MaxPooling2D(2, strides=2))
     encoder.add(keras.layers.BatchNormalization())
-    encoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation='relu'))
+    encoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation=tf.nn.tanh))
     encoder.add(keras.layers.MaxPooling2D(2, strides=2))
     encoder.add(keras.layers.BatchNormalization())
-    encoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation='relu'))
+    encoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation=tf.nn.tanh))
     encoder.add(keras.layers.Flatten())
 
 
@@ -26,20 +26,21 @@ def autoencoder(input_shape):
     decoder = keras.models.Sequential()
 
     decoder.add(keras.layers.Reshape((8, 8, 32), input_shape=encoder.output.shape[1:]))
-    decoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation='relu', input_shape=encoder.output.shape[1:]))
+    decoder.add(keras.layers.Conv2D(32, 3, strides=1, padding='same', activation=tf.nn.tanh, input_shape=encoder.output.shape[1:]))
     decoder.add(keras.layers.UpSampling2D(2))
     encoder.add(keras.layers.BatchNormalization())
-    decoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation='relu'))
+    decoder.add(keras.layers.Conv2D(64, 3, strides=1, padding='same', activation=tf.nn.tanh))
     decoder.add(keras.layers.UpSampling2D(2))
     encoder.add(keras.layers.BatchNormalization())
-    decoder.add(keras.layers.Conv2D(128, 3, strides=1, padding='same', activation='relu'))
+    decoder.add(keras.layers.Conv2D(128, 3, strides=1, padding='same', activation=tf.nn.tanh))
     decoder.add(keras.layers.UpSampling2D(2))
     encoder.add(keras.layers.BatchNormalization())
-    decoder.add(keras.layers.Conv2D(1, 3, strides=1, padding='same', activation='relu'))
+    decoder.add(keras.layers.Conv2D(1, 3, strides=1, padding='same', activation=tf.nn.tanh))
     decoder.add(keras.layers.UpSampling2D(2))
+    decoder.add(keras.layers.Conv2D(1, 3, strides=1, padding='same', activation=tf.nn.tanh))
     conv_autoencoder = keras.Model(inputs=encoder.input, outputs=decoder(encoder.outputs))
     optim_params = dict(learning_rate = 0.003,momentum = 0.9394867962846013,decay = 0.0003)
-    conv_autoencoder.compile(optimizer=keras.optimizers.SGD(**optim_params), loss=keras.losses.mean_squared_error, metrics = ['accuracy'])
+    conv_autoencoder.compile(optimizer=keras.optimizers.SGD(**optim_params), loss=keras.losses.mean_squared_error)
     return encoder, decoder, conv_autoencoder
 
 def ChimCLR(input_shape,num_classes):

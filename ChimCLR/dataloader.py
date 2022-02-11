@@ -31,12 +31,13 @@ class DataLoader:
             self.X = data['x']
             self.y = data['y']
             self.Z =  data['z']
+            self.X_ = (self.X - self.X.mean(axis=0, keepdims=True))/self.X.std(axis=0,keepdims=True)
             self.CLASSES = list(data['c'])
     def standardize(self):
         self.X =  (self.X - self.X.mean(axis=0, keepdims=True))/self.X.std(axis=0,keepdims=True)
     def project3D(self, Model, n_components = 3):
         model =  Model(n_components=n_components, random_state=np.random.seed(42))
-        self.X_projection = model.fit_transform(self.X.reshape(self.X.shape[0],-1))
+        self.X_projection = model.fit_transform(self.X_.reshape(self.X_.shape[0],-1))
         if(len(str(model)) > 5):
             modelName = str(model)[:3]
         else:
