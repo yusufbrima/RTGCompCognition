@@ -27,8 +27,8 @@ if __name__ == "__main__":
      inaSpeechSegmenter, as well as filtering out 10% of the frequencies below the Nyquist frequency in each audio file"""
     
     pp =  Preprocessing(config.data['INPUT_PATH'])
-    # pp.convert()
+    pp.convert()
 
     df =  pp.get_files()
-
+    print(df.shape)
     pp.clean() #This function executes the preprocessing which saves the output files in config.data['OUT_PATH']
