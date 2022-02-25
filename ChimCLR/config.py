@@ -11,7 +11,7 @@ audio = dict(
 
 hyperparams = dict(
     LEARNING_RATE =  0.003,
-    BATCH_SIZE =  8,
+    BATCH_SIZE =  128,
     EPOCHS =  20
 )
 
@@ -21,8 +21,11 @@ experiment = dict(
 
 
 data = dict(
-    INPUT_PATH = Path('/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/Luango_Speaker/good_data'), #Path('/net/store/cbc/projects/Pan troglodytes/audio_PH_dataset/PH/good_data/'), #/
+    INPUT_PATH = Path('/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/Full_Data/good'),
+    CONVERT_PATH = Path('/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/Full_Data/Converted'), 
+    OUT_PATH = Path('/net/projects/scratch/winter/valid_until_31_July_2022/ybrima/data/Full_Data/Cleaned'),
     file_path =  '/net/store/cv/users/ybrima/scratch/data/Luango_Speaker/clip_loango.npz',
+    file_path_pan =  '/net/store/cv/users/ybrima/scratch/data/Luango_Speaker/clip_loango_pan.npz',
     file_path2 =  '/net/store/cv/users/ybrima/scratch/data/Luango_Speaker/clip_loango_resized.npz',
     BASE_PATH =  '/net/store/cv/users/ybrima/scratch/data/Luango_Speaker/',
     SHUFFLE_BUFFER_SIZE = 50,
